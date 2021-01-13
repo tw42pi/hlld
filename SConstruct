@@ -11,7 +11,7 @@ env_with_err = Environment(CCFLAGS = '-g -std=c99 -D_GNU_SOURCE -Wall -Wextra -W
 env_without_unused_err = Environment(CCFLAGS = '-g -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-unused-function -Wno-unused-result -Werror -O2 -pthread -Isrc/ -Ideps/inih/ -Ideps/libev/')
 env_without_err = Environment(CCFLAGS = '-g -std=c99 -D_GNU_SOURCE -O2 -pthread -Isrc/ -Ideps/inih/ -Ideps/libev/')
 
-objs =  env_with_err.Object('src/config', 'src/config.c') + \
+objs =  env_without_err.Object('src/config', 'src/config.c') + \
         env_with_err.Object('src/barrier', 'src/barrier.c') + \
         env_with_err.Object('src/hll', 'src/hll.c') + \
         env_with_err.Object('src/hll_constants', 'src/hll_constants.c') + \
@@ -19,7 +19,7 @@ objs =  env_with_err.Object('src/config', 'src/config.c') + \
         env_with_err.Object('src/set', 'src/set.c') + \
         env_with_err.Object('src/set_manager', 'src/set_manager.c') + \
         env_without_err.Object('src/networking', 'src/networking.c') + \
-        env_with_err.Object('src/conn_handler', 'src/conn_handler.c') + \
+        env_without_err.Object('src/conn_handler', 'src/conn_handler.c') + \
         env_with_err.Object('src/background', 'src/background.c') + \
         env_with_err.Object('src/art', 'src/art.c')
 
