@@ -27,7 +27,7 @@ libs = ["pthread", murmur, inih, "m"]
 if plat == 'Linux':
    libs.append("rt")
 
-hlld = env_with_err.Program('hlld', objs + ["src/hlld.c"], LIBS=libs)
+hlld = env_without_err.Program('hlld', objs + ["src/hlld.c"], LIBS=libs)
 
 if plat == "Darwin":
     test = env_without_err.Program('test_runner', objs + Glob("tests/runner.c"), LIBS=libs + ["check"])
